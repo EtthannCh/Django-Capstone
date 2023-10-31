@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
 class MenuItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Menu
-        fields = ["Title", "Price", "Inventory"]
+        fields = ["id","title", "price", "inventory"]
         
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
