@@ -15,3 +15,16 @@ class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
         fields = "__all__"
+        
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["id", "username", "email", "password"]
+    
+    def create(self, validate_data):
+        user = User.objects.create_user(
+            username = validate_data["username"],
+            email = validate_data["email"],
+            password= validate_data["password"],
+        )
+        return user
